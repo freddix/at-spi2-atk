@@ -1,24 +1,24 @@
 Summary:	A GTK+ module that bridges ATK to D-Bus at-spi
 Name:		at-spi2-atk
-Version:	2.10.2
+Version:	2.12.0
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/at-spi2-atk/2.10/%{name}-%{version}.tar.xz
-# Source0-md5:	7b13a2ee1a8b6d1524837a14b3874ddf
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/at-spi2-atk/2.12/%{name}-%{version}.tar.xz
+# Source0-md5:	aafc5e1bb17cd3ad440f6350e7a021c1
 URL:		http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
-BuildRequires:	at-spi2-core-devel >= 2.10.2
-BuildRequires:	atk-devel >= 1:2.10.0
+BuildRequires:	at-spi2-core-devel >= 2.12.0
+BuildRequires:	atk-devel >= 1:2.12.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-devel
 BuildRequires:	gettext-devel
-BuildRequires:	glib-devel >= 1:2.38.0
+BuildRequires:	glib-devel >= 1:2.40.0
 BuildRequires:	libtool
 BuildRequires:	pkg-config
 BuildRequires:	xorg-libX11-devel
 Requires:	%{name}-libs = %{version}-%{release}
-Requires:	at-spi2-core >= 2.10.0
+Requires:	at-spi2-core >= 2.12.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,6 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/gtk-*/modules/libatk-bridge.la
 
 %clean
